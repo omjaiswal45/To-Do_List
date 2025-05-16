@@ -1,0 +1,26 @@
+.APP-name{
+  font-weight: 700;
+  font-size: 40px;
+  color: #ae10ed;
+  margin: 10px;
+  margin-bottom: 20px;
+}
+input{
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #070606;
+  width: 100%;
+}
+.items-container{
+ 
+ text-align: left;
+}
+.own-row{
+  margin: 10px 5px;
+}
+.own-button{
+  min-width: 80px;
+}
+.todo-header{
+ text-align: left;
+}
