@@ -2,32 +2,40 @@ import AppName from "./components/AppName";
 import AddTodo from "./components/AddTodo";
 import TodoItems from "./components/Todoitems";
 import "./App.css";
-
+import { useState } from "react";
+import Container from "./components/container";
 function App() {
-  const todoItems = [
-    { todoName: "buy milk", todoDate: "01/10/2025" },
-    { todoName: "buy banana", todoDate: "02/10/2025" },
-    { todoName: "buy eggs", todoDate: "03/10/2025" },
-    { todoName: "buy bread", todoDate: "04/10/2025" },
-    { todoName: "buy butter", todoDate: "05/10/2025" },
-    { todoName: "buy sugar", todoDate: "06/10/2025" },
-    { todoName: "buy salt", todoDate: "07/10/2025" },
-    { todoName: "buy rice", todoDate: "08/10/2025" },
-    { todoName: "buy flour", todoDate: "09/10/2025" },
-    { todoName: "buy oil", todoDate: "10/10/2025" },
-  ];
+  // const intialTodoItems = [
+  //   { todoName: "buy milk", todoDate: "01-10-2025" },
+  //   { todoName: "go to gym", todoDate: "01-10-2025" },
+  //   { todoName: "chain pine ", todoDate: "01-10-2025" },
+  // ];
+ 
+  const [todoItems, setTodoItems] = useState([]);
+  const handleNewItem =(itemName, itemDueDate) => {
+    const newTodoItem =[ { todoName: itemName, todoDate: itemDueDate } , ...todoItems];
+    setTodoItems(newTodoItem);
+  };
+  const handleDeleteItem = (itemName) => {
+    const newTodoItems = todoItems.filter((item) => item.todoName !== itemName);
+    setTodoItems(newTodoItems);
+  }
   return (
+    
+    <Container>
+    
     <center class="todo-container">
       <AppName />
       <div className="todo-header">
-        <AddTodo />
+        <AddTodo onNewItems ={handleNewItem} />
       </div>
      
      <div className="items-container"> 
-        < TodoItems todoItems ={todoItems}></TodoItems>
+        < TodoItems todoItems ={todoItems} onDeleteClick = {handleDeleteItem}></TodoItems>
       </div>
      
     </center>
+    </Container>
   );
 }
 export default App;
