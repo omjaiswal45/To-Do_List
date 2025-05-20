@@ -3,7 +3,7 @@ import AddTodo from "./components/AddTodo";
 import TodoItems from "./components/Todoitems";
 import "./App.css";
 import { useState } from "react";
-import Container from "./components/container";
+import Container from "./components/Container";
 function App() {
   // const intialTodoItems = [
   //   { todoName: "buy milk", todoDate: "01-10-2025" },
